@@ -13,6 +13,7 @@
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.2",
+    "@sentry/nextjs": "^8.55.0",
     "bankingapplication": "file:",
     "chart.js": "^4.4.7",
     "class-variance-authority": "^0.7.1",
