@@ -42,7 +42,6 @@ const MobileNav = ({ user }: MobileNavProps) => {
               NexBank
             </h1>
           </Link>
-
           <div className="mobilenav-sheet">
             <SheetClose asChild>
               <nav className="flex h-full flex-col gap-6 pt-16 text-white">
