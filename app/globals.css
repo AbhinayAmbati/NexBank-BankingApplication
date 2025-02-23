@@ -271,7 +271,7 @@
 
   /* Auth */
   .auth-asset {
-    @apply flex h-screen w-full sticky top-0 items-center justify-center bg-sky-1 max-lg:hidden;
+    @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 max-lg:hidden;
   }
 
   /* Auth Form */
@@ -357,10 +357,6 @@
 
   .footer_image {
     @apply relative size-5 max-xl:w-full max-xl:flex max-xl:justify-center max-xl:items-center;
-  }
-
-  .footer_image-mobile {
-    @apply relative size-5;
   }
 
   /* Sidebar */
