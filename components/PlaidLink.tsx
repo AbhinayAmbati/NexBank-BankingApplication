@@ -5,6 +5,7 @@ import { PlaidLinkOnSuccess, PlaidLinkOptions, usePlaidLink } from 'react-plaid-
 import { useRouter } from 'next/navigation';
 import { createLinkToken, exchangePublicToken } from '@/lib/actions/user.actions';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 const PlaidLink = ({user, variant} : PlaidLinkProps) => {
   
@@ -64,7 +65,7 @@ const PlaidLink = ({user, variant} : PlaidLinkProps) => {
           width={24}
           height={24}  
           />
-          <p className='text-[16px] font-semibold  text-black-2'>Connect Bank</p>
+          <p className={cn('sidebar-label')}>Connect Bank</p>
         </Button>
     )}
     </>

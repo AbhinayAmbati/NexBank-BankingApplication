@@ -4,8 +4,11 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { sidebarLinks } from "@/constants";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -29,6 +32,12 @@ const MobileNav = ({ user }: MobileNavProps) => {
           />
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-white">
+        <SheetTitle>
+            <VisuallyHidden>Mobile Navigation</VisuallyHidden>
+          </SheetTitle>
+          <SheetDescription>
+            <VisuallyHidden>Menu options and navigation links.</VisuallyHidden>
+          </SheetDescription>
           <Link
             href="/"
             className="cursor-pointer flex items-center gap-1 px-4"
