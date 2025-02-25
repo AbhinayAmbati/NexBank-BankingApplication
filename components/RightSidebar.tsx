@@ -37,7 +37,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
         })
     
         router.push('/');
-      }, [user])
+      }, [router, user])
 
     const config: PlaidLinkOptions = {
         token,
