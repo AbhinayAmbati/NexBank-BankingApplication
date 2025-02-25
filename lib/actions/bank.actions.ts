@@ -154,6 +154,7 @@ export const getTransactions = async ({
   let transactions: any[] = []; // Ensure transactions is an array
 
   try {
+    // Iterate through each page of new transaction updates for item
     while (hasMore) {
       const response = await plaidClient.transactionsSync({
         access_token: accessToken,
@@ -161,28 +162,25 @@ export const getTransactions = async ({
 
       const data = response.data;
 
-      transactions = [
-        ...transactions,
-        ...data.added.map((transaction) => ({
-          id: transaction.transaction_id,
-          name: transaction.name,
-          paymentChannel: transaction.payment_channel,
-          type: transaction.payment_channel,
-          accountId: transaction.account_id,
-          amount: transaction.amount,
-          pending: transaction.pending,
-          category: transaction.category ? transaction.category[0] : "",
-          date: transaction.date,
-          image: transaction.logo_url,
-        })),
-      ];
+      transactions = response.data.added.map((transaction) => ({
+        id: transaction.transaction_id,
+        name: transaction.name,
+        paymentChannel: transaction.payment_channel,
+        type: transaction.payment_channel,
+        accountId: transaction.account_id,
+        amount: transaction.amount,
+        pending: transaction.pending,
+        category: transaction.category ? transaction.category[0] : "",
+        date: transaction.date,
+        image: transaction.logo_url,
+      }));
 
       hasMore = data.has_more;
     }
 
     return parseStringify(transactions);
   } catch (error) {
-    console.error("An error occurred while getting transactions:", error);
-    return []; // Return an empty array instead of undefined
+    // console.error("An error occurred while getting transactions:", error);
+    // return []; // Return an empty array instead of undefined
   }
 };
