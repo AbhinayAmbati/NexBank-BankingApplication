@@ -4,6 +4,7 @@ import RightSidebar from '@/components/RightSidebar'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
 import { getAccount, getAccounts } from '@/lib/actions/bank.actions';
 import { getLoggedInUser } from '@/lib/actions/user.actions';
+import { redirect } from 'next/navigation';
 
 interface SearchParamProps {
   searchParams: {
@@ -18,6 +19,10 @@ const Home = async ( { searchParams : {id, page}} : SearchParamProps) => {
   const currentPage = Number(page as string) || 1;
 
   const isLoggedIn = await getLoggedInUser();
+
+  if(!isLoggedIn){
+    redirect('/sign-in');
+  };
 
   const accounts = await getAccounts({ userId: isLoggedIn.$id });
 
