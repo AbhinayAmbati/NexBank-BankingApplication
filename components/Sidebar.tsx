@@ -6,7 +6,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import { text } from 'stream/consumers';
 import Footer from './Footer';
 import PlaidLink from './PlaidLink';
 

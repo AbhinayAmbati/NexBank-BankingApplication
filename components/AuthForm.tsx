@@ -9,14 +9,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import CustomInput from "./CustomInput";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
@@ -25,10 +18,6 @@ import { signIn, signUp } from '@/lib/actions/user.actions';
 import PlaidLink from "./PlaidLink";
 import {toast} from "sonner"
 
-const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6),
-});
 
 const AuthForm = ({ type }: { type: string }) => {
   const [user, setUser] = useState(null);
