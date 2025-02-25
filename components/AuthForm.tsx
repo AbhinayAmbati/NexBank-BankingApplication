@@ -24,7 +24,7 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { signIn, signUp } from '@/lib/actions/user.actions';
 import PlaidLink from "./PlaidLink";
-
+import {toast} from "sonner"
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -76,11 +76,14 @@ const AuthForm = ({ type }: { type: string }) => {
           password: data.password
         })
 
-        if(response) router.push('/');
+        if(response) {
+          toast.success("SignIn Successful");          
+           router.push('/');
+          };
       }
-
     }catch(error){
       console.log(error)
+      toast.error("SignIn Failed");
     }finally{
       setIsLoading(false)
     }
