@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { createLinkToken, exchangePublicToken } from '@/lib/actions/user.actions';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { toast } from 'sonner';
 
 const PlaidLink = ({user, variant} : PlaidLinkProps) => {
   
@@ -28,6 +29,8 @@ const PlaidLink = ({user, variant} : PlaidLinkProps) => {
           user,
         })
     
+        toast.success('Bank account connected successfully');
+
         router.push('/');
       }, [router, user])
 

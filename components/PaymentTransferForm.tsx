@@ -25,6 +25,7 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import {toast} from "sonner"
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -83,10 +84,12 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
 
         if (newTransaction) {
           form.reset();
+          toast.success("Transfer request sent successfully");
           router.push("/");
         }
       }
     } catch (error) {
+      toast.error("Transfer request failed");
       console.error("Submitting create transfer request failed: ", error);
     }
 

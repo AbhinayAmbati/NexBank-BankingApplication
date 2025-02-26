@@ -54,6 +54,9 @@ const AuthForm = ({ type }: { type: string }) => {
           password: data.password
         }
         const newUser = await signUp(userData);
+        if(newUser) {
+          toast.success("SignUp Successful");
+        }
         setUser(newUser);
       }
 
@@ -70,8 +73,8 @@ const AuthForm = ({ type }: { type: string }) => {
           };
       }
     }catch(error){
+      toast.error('Sign In Failed')
       console.log(error)
-      toast.error("SignIn Failed");
     }finally{
       setIsLoading(false)
     }
